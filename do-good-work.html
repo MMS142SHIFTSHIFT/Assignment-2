@@ -25,12 +25,16 @@
             padding: 0;
         }
 
-        /* PRODUCT PAGE LAYOUT */
+        /* PRODUCT PAGE */
 
         main {
+            position: relative;
+            isolation: isolate;
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 24px 56px;
+            background: #fff;
+            overflow: hidden;
         }
 
         .breadcrumb {
@@ -43,15 +47,34 @@
             margin: 0 6px;
         }
 
+        /* PRODUCT WATERMARK */
+
+        main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 750px;
+            height: 100%;
+            background-image: url("images-new/serein%20watermark.png");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: 100% auto;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* PRODUCT LAYOUT */
+
         .product {
             display: grid;
-            grid-template-columns:
-                70px minmax(0, 1fr) minmax(0, 340px);
+            grid-template-columns: 70px minmax(0, 1fr) minmax(0, 340px);
             gap: 20px;
             align-items: start;
         }
 
-        /* PRODUCT THUMBNAILS */
+        /* THUMBNAILS */
 
         .thumbs {
             display: flex;
@@ -84,6 +107,7 @@
 
         .main-image {
             width: 100%;
+            height: auto;
             aspect-ratio: auto;
             background: #fff;
             overflow: hidden;
@@ -129,7 +153,7 @@
             display: block;
         }
 
-        /* SIZE BUTTONS */
+        /* SIZE SELECTION */
 
         .sizes {
             display: flex;
@@ -252,7 +276,7 @@
         }
 
         .card .info {
-            padding: 14px 6px 0 6px;
+            padding: 14px 6px 0;
         }
 
         .card .name {
@@ -287,7 +311,7 @@
             color: #fff;
         }
 
-        /* RESPONSIVE PRODUCT LAYOUT */
+        /* RESPONSIVE */
 
         @media (max-width: 760px) {
 
@@ -308,6 +332,10 @@
                 gap: 20px;
             }
 
+            main::before {
+                width: 100%;
+            }
+
             .site-header,
             .site-footer {
                 padding-left: 20px;
@@ -326,19 +354,8 @@
         <header class="site-header">
 
             <a href="index.html" class="brand">
-
-                <img
-                    src="images-new/serein-icon.png"
-                    alt=""
-                    class="brand-icon"
-                >
-
-                <img
-                    src="images-new/serein-wordmark-transparent.png"
-                    alt="SEREIN"
-                    class="brand-wordmark"
-                >
-
+                <img src="images-new/serein-icon.png" alt="" class="brand-icon">
+                <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN" class="brand-wordmark">
             </a>
 
             <nav>
@@ -350,7 +367,7 @@
 
         </header>
 
-        <!-- MAIN PRODUCT CONTENT -->
+        <!-- PRODUCT CONTENT -->
 
         <main>
 
@@ -371,7 +388,7 @@
                     <button
                         type="button"
                         aria-current="true"
-                        data-src="images-new/do%20good%20work%20thumbnail%201.png"
+                        data-src="images-new/do%20good%20work%20thumbnail%201%20hires.png"
                     >
                         <img
                             src="images-new/do%20good%20work%20thumbnail%201.png"
@@ -381,7 +398,7 @@
 
                     <button
                         type="button"
-                        data-src="images-new/do%20good%20work%20thumbnail%202.png"
+                        data-src="images-new/do%20good%20work%20thumbnail%202%20hires.png"
                     >
                         <img
                             src="images-new/do%20good%20work%20thumbnail%202.png"
@@ -391,7 +408,7 @@
 
                     <button
                         type="button"
-                        data-src="images-new/do%20good%20work%20thumbnail%203.png"
+                        data-src="images-new/do%20good%20work%20thumbnail%203%20hires.png"
                     >
                         <img
                             src="images-new/do%20good%20work%20thumbnail%203.png"
@@ -401,89 +418,47 @@
 
                 </div>
 
-                <!-- MAIN IMAGE -->
+                <!-- MAIN PRODUCT IMAGE -->
 
                 <div class="main-image">
-
                     <img
                         id="main-img"
-                        src="images-new/do%20good%20work%20big%20thumbnail.png"
-                        alt="Do Good Work Tee, front view"
+                        src="images-new/do%20good%20work%20thumbnail%201%20hires.png"
+                        alt="Do Good Work Tee, model wearing the shirt"
                     >
-
                 </div>
 
-                <!-- PRODUCT INFORMATION -->
+                <!-- PRODUCT DETAILS -->
 
                 <div class="details">
 
-                    <h1 id="product-name">
-                        Do Good Work Tee
-                    </h1>
+                    <h1 id="product-name">Do Good Work Tee</h1>
 
-                    <p class="price" id="product-price">
-                        ₱499.00
-                    </p>
+                    <p class="price" id="product-price">₱499.00</p>
 
                     <p class="desc">
                         <span>
-                            A simple reminder to show up,
-                            get moving, and make the most
-                            of the day.
+                            A simple reminder to show up, get moving,
+                            and make the most of the day.
                         </span>
                     </p>
 
-                    <!-- SIZE -->
+                    <span class="label" id="size-label">Size</span>
 
-                    <span class="label" id="size-label">
-                        Size
-                    </span>
+                    <div class="sizes" role="group" aria-labelledby="size-label">
 
-                    <div
-                        class="sizes"
-                        role="group"
-                        aria-labelledby="size-label"
-                    >
-
-                        <button
-                            type="button"
-                            class="size"
-                            aria-pressed="false"
-                        >S</button>
-
-                        <button
-                            type="button"
-                            class="size"
-                            aria-pressed="false"
-                        >M</button>
-
-                        <button
-                            type="button"
-                            class="size"
-                            aria-pressed="false"
-                        >L</button>
-
-                        <button
-                            type="button"
-                            class="size"
-                            aria-pressed="false"
-                        >XL</button>
+                        <button type="button" class="size" aria-pressed="false">S</button>
+                        <button type="button" class="size" aria-pressed="false">M</button>
+                        <button type="button" class="size" aria-pressed="false">L</button>
+                        <button type="button" class="size" aria-pressed="false">XL</button>
 
                     </div>
 
-                    <!-- QUANTITY -->
-
-                    <span class="label">
-                        Quantity
-                    </span>
+                    <span class="label">Quantity</span>
 
                     <div class="qty">
 
-                        <button
-                            type="button"
-                            id="minus"
-                            aria-label="Decrease quantity"
-                        >−</button>
+                        <button type="button" id="minus" aria-label="Decrease quantity">−</button>
 
                         <input
                             id="qty"
@@ -493,30 +468,15 @@
                             aria-label="Quantity"
                         >
 
-                        <button
-                            type="button"
-                            id="plus"
-                            aria-label="Increase quantity"
-                        >+</button>
+                        <button type="button" id="plus" aria-label="Increase quantity">+</button>
 
                     </div>
 
-                    <!-- ORDER BUTTON -->
-
-                    <button
-                        type="button"
-                        class="order"
-                        id="order-btn"
-                    >
-                        ORDER NOW
-                        <span aria-hidden="true">→</span>
+                    <button type="button" class="order" id="order-btn">
+                        ORDER NOW <span aria-hidden="true">→</span>
                     </button>
 
-                    <p
-                        class="msg"
-                        id="msg"
-                        role="alert"
-                    ></p>
+                    <p class="msg" id="msg" role="alert"></p>
 
                 </div>
 
@@ -530,8 +490,6 @@
 
                 <div class="cards">
 
-                    <!-- DON'T BE LATE -->
-
                     <article class="card">
 
                         <div class="thumb">
@@ -543,28 +501,16 @@
 
                         <div class="info">
 
-                            <p class="name">
-                                Don't Be Late Tee
-                            </p>
+                            <p class="name">Don't Be Late Tee</p>
 
                             <div class="row">
-
                                 <span class="p">₱499</span>
-
-                                <a
-                                    class="view"
-                                    href="dont-be-late.html"
-                                >
-                                    VIEW DETAILS →
-                                </a>
-
+                                <a class="view" href="dont-be-late.html">VIEW DETAILS →</a>
                             </div>
 
                         </div>
 
                     </article>
-
-                    <!-- EVERYDAY COMFORT -->
 
                     <article class="card">
 
@@ -577,21 +523,11 @@
 
                         <div class="info">
 
-                            <p class="name">
-                                Everyday Comfort Tee
-                            </p>
+                            <p class="name">Everyday Comfort Tee</p>
 
                             <div class="row">
-
                                 <span class="p">₱499</span>
-
-                                <a
-                                    class="view"
-                                    href="everyday-comfort.html"
-                                >
-                                    VIEW DETAILS →
-                                </a>
-
+                                <a class="view" href="everyday-comfort.html">VIEW DETAILS →</a>
                             </div>
 
                         </div>
@@ -610,50 +546,36 @@
 
             <div class="footer-column">
 
-                <span class="footer-heading">
-                    EXPLORE
-                </span>
+                <span class="footer-heading">EXPLORE</span>
 
                 <div class="footer-links">
-
                     <a href="index.html">HOME</a>
                     <a href="shop.html">SHOP</a>
                     <a href="index.html#about">ABOUT</a>
                     <a href="contact.html">CONTACT</a>
-
                 </div>
 
             </div>
 
             <div class="footer-column">
 
-                <span class="footer-heading">
-                    INFORMATION
-                </span>
+                <span class="footer-heading">INFORMATION</span>
 
                 <div class="footer-links">
-
-                    <a href="privacy.html">
-                        PRIVACY AND TERMS
-                    </a>
-
+                    <a href="privacy.html">PRIVACY AND TERMS</a>
                 </div>
 
             </div>
 
             <div class="footer-column">
 
-                <span class="footer-heading">
-                    FOLLOW US
-                </span>
+                <span class="footer-heading">FOLLOW US</span>
 
                 <div class="social-icons">
-
                     <img
                         src="images-new/media.png"
                         alt="Instagram, Facebook and TikTok"
                     >
-
                 </div>
 
             </div>
@@ -676,9 +598,7 @@
 
                 </div>
 
-                <p>
-                    © 2026 SEREIN. ALL RIGHTS RESERVED
-                </p>
+                <p>© 2026 SEREIN. ALL RIGHTS RESERVED</p>
 
             </div>
 
@@ -717,7 +637,7 @@
 
         });
 
-        /* QUANTITY CONTROLS */
+        /* QUANTITY */
 
         function setQty(number) {
 
@@ -730,25 +650,19 @@
 
         document.getElementById('minus')
             .addEventListener('click', function () {
-
                 setQty(+qtyInput.value - 1);
-
             });
 
         document.getElementById('plus')
             .addEventListener('click', function () {
-
                 setQty(+qtyInput.value + 1);
-
             });
 
         qtyInput.addEventListener('change', function () {
-
             setQty(qtyInput.value);
-
         });
 
-        /* PRODUCT IMAGE THUMBNAILS */
+        /* HIGH-RESOLUTION IMAGE SWITCHING */
 
         var mainImg = document.getElementById('main-img');
 
@@ -768,15 +682,10 @@
 
                     document.querySelectorAll('#thumbs button')
                         .forEach(function (item) {
-
                             item.removeAttribute('aria-current');
-
                         });
 
-                    thumbnail.setAttribute(
-                        'aria-current',
-                        'true'
-                    );
+                    thumbnail.setAttribute('aria-current', 'true');
 
                 });
 
