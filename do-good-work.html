@@ -19,22 +19,13 @@
             --tan: #d9c9bb;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         /* PRODUCT PAGE */
 
-        main {
-            position: relative;
-            isolation: isolate;
+        .product-detail-page main {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 24px 56px;
             background: #fff;
-            overflow: hidden;
         }
 
         .breadcrumb {
@@ -45,24 +36,6 @@
 
         .breadcrumb span {
             margin: 0 6px;
-        }
-
-        /* PRODUCT WATERMARK */
-
-        main::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 750px;
-            height: 100%;
-            background-image: url("images-new/serein%20watermark.png");
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: 100% auto;
-            pointer-events: none;
-            z-index: -1;
         }
 
         /* PRODUCT LAYOUT */
@@ -153,7 +126,7 @@
             display: block;
         }
 
-        /* SIZE SELECTION */
+        /* SIZE BUTTONS */
 
         .sizes {
             display: flex;
@@ -304,18 +277,11 @@
             white-space: nowrap;
         }
 
-        .card .view:hover,
-        .card .view:active,
-        .card .view:focus {
-            background: var(--btn);
-            color: #fff;
-        }
-
         /* RESPONSIVE */
 
         @media (max-width: 760px) {
 
-            main {
+            .product-detail-page main {
                 padding: 30px 20px 45px;
             }
 
@@ -330,16 +296,6 @@
 
             .cards {
                 gap: 20px;
-            }
-
-            main::before {
-                width: 100%;
-            }
-
-            .site-header,
-            .site-footer {
-                padding-left: 20px;
-                padding-right: 20px;
             }
         }
     </style>
@@ -385,47 +341,40 @@
 
                 <div class="thumbs" id="thumbs">
 
-                    <button
-                        type="button"
+                    <button type="button"
                         aria-current="true"
-                        data-src="images-new/do%20good%20work%20thumbnail%201%20hires.png"
-                    >
-                        <img
-                            src="images-new/do%20good%20work%20thumbnail%201.png"
-                            alt="Model wearing the tee"
-                        >
+                        data-src="images-new/do%20good%20work%20thumbnail%201%20hires.png">
+
+                        <img src="images-new/do%20good%20work%20thumbnail%201.png"
+                            alt="Model wearing the tee">
                     </button>
 
-                    <button
-                        type="button"
-                        data-src="images-new/do%20good%20work%20thumbnail%202%20hires.png"
-                    >
-                        <img
-                            src="images-new/do%20good%20work%20thumbnail%202.png"
-                            alt="Folded tee"
-                        >
+                    <button type="button"
+                        data-src="images-new/do%20good%20work%20thumbnail%202%20hires.png">
+
+                        <img src="images-new/do%20good%20work%20thumbnail%202.png"
+                            alt="Folded tee">
                     </button>
 
-                    <button
-                        type="button"
-                        data-src="images-new/do%20good%20work%20thumbnail%203%20hires.png"
-                    >
-                        <img
-                            src="images-new/do%20good%20work%20thumbnail%203.png"
-                            alt="Two people wearing the tee"
-                        >
+                    <button type="button"
+                        data-src="images-new/do%20good%20work%20thumbnail%203%20hires.png">
+
+                        <img src="images-new/do%20good%20work%20thumbnail%203.png"
+                            alt="Two people wearing the tee">
                     </button>
 
                 </div>
 
-                <!-- MAIN PRODUCT IMAGE -->
+                <!-- MAIN HIGH-RESOLUTION IMAGE -->
 
                 <div class="main-image">
+
                     <img
                         id="main-img"
                         src="images-new/do%20good%20work%20thumbnail%201%20hires.png"
                         alt="Do Good Work Tee, model wearing the shirt"
                     >
+
                 </div>
 
                 <!-- PRODUCT DETAILS -->
@@ -493,10 +442,8 @@
                     <article class="card">
 
                         <div class="thumb">
-                            <img
-                                src="images-new/dont%20be%20late%20big%20thumbnail.png"
-                                alt="Don't Be Late Tee"
-                            >
+                            <img src="images-new/dont%20be%20late%20big%20thumbnail.png"
+                                alt="Don't Be Late Tee">
                         </div>
 
                         <div class="info">
@@ -515,10 +462,8 @@
                     <article class="card">
 
                         <div class="thumb">
-                            <img
-                                src="images-new/everyday%20comfort%20big%20thumbnail.png"
-                                alt="Everyday Comfort Tee"
-                            >
+                            <img src="images-new/everyday%20comfort%20big%20thumbnail.png"
+                                alt="Everyday Comfort Tee">
                         </div>
 
                         <div class="info">
@@ -572,10 +517,8 @@
                 <span class="footer-heading">FOLLOW US</span>
 
                 <div class="social-icons">
-                    <img
-                        src="images-new/media.png"
-                        alt="Instagram, Facebook and TikTok"
-                    >
+                    <img src="images-new/media.png"
+                        alt="Instagram, Facebook and TikTok">
                 </div>
 
             </div>
@@ -583,19 +526,8 @@
             <div class="footer-brand">
 
                 <div class="footer-brand-logo">
-
-                    <img
-                        src="images-new/serein-icon.png"
-                        alt=""
-                        class="footer-icon"
-                    >
-
-                    <img
-                        src="images-new/serein-wordmark-transparent.png"
-                        alt="SEREIN"
-                        class="footer-wordmark"
-                    >
-
+                    <img src="images-new/serein-icon.png" alt="" class="footer-icon">
+                    <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN" class="footer-wordmark">
                 </div>
 
                 <p>© 2026 SEREIN. ALL RIGHTS RESERVED</p>
@@ -606,7 +538,7 @@
 
     </div>
 
-    <!-- PRODUCT INTERACTIONS -->
+    <!-- JAVASCRIPT INTERACTIONS -->
 
     <script>
 
@@ -662,7 +594,7 @@
             setQty(qtyInput.value);
         });
 
-        /* HIGH-RESOLUTION IMAGE SWITCHING */
+        /* HIGH-RESOLUTION THUMBNAIL SWITCHING */
 
         var mainImg = document.getElementById('main-img');
 
@@ -677,8 +609,7 @@
                         document.getElementById('product-name')
                             .textContent.trim()
                         + ' - '
-                        + thumbnail.querySelector('img')
-                            .alt.toLowerCase();
+                        + thumbnail.querySelector('img').alt.toLowerCase();
 
                     document.querySelectorAll('#thumbs button')
                         .forEach(function (item) {
