@@ -12,7 +12,7 @@
         rel="stylesheet"
     >
 
-    <!-- CUSTOM CSS -->
+    <!-- SEREIN CUSTOM CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -26,37 +26,39 @@
             color: #111;
         }
 
-        /* CONTACT MAIN AREA */
+        /* MAIN CONTACT AREA */
 
         .contact-main {
             position: relative;
             isolation: isolate;
             width: 100%;
-            min-height: 820px;
-            padding: 24px 0 65px;
+            min-height: 690px;
+            padding: 45px 0 65px;
             background: #f2f0ec;
             overflow: hidden;
         }
 
-        /* WATERMARK */
+        /* LARGE WATERMARK */
 
         .contact-main::before {
             content: "";
             position: absolute;
             z-index: -1;
             pointer-events: none;
-            left: 3%;
-            top: 80px;
-            width: 55%;
-            height: 690px;
+            left: -3%;
+            top: 15px;
+            width: 72%;
+            height: 680px;
             background-image: url("images-new/serein%20watermark.png");
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: center left;
             background-size: contain;
-            opacity: 0.13;
+            opacity: 0.20;
         }
 
         .contact-wrapper {
+            position: relative;
+            z-index: 1;
             width: 100%;
             max-width: 1260px;
             padding-left: 24px;
@@ -64,7 +66,7 @@
             margin: 0 auto;
         }
 
-        /* IMPORTANT: CONTROL BOOTSTRAP GRID */
+        /* BOOTSTRAP GRID OVERRIDES */
 
         .contact-row {
             display: flex !important;
@@ -72,14 +74,13 @@
             align-items: flex-start !important;
             margin-left: 0 !important;
             margin-right: 0 !important;
-            gap: 0;
         }
 
         .contact-row > .contact-left {
             flex: 0 0 50% !important;
             width: 50% !important;
             max-width: 50% !important;
-            padding: 0 55px 0 0 !important;
+            padding: 0 65px 0 0 !important;
         }
 
         .contact-row > .contact-right {
@@ -89,50 +90,63 @@
             padding: 0 0 0 10px !important;
         }
 
-        /* LEFT SIDE TEXT */
+        /* LEFT COLUMN TEXT */
 
         .contact-left {
-            padding-top: 150px !important;
+            min-height: 510px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
         }
 
         .contact-intro {
-            max-width: 350px;
-            font-size: 14px;
-            line-height: 1.5;
+            max-width: 420px;
+            font-size: 17px;
+            line-height: 1.55;
+            font-weight: 400;
             margin: 0 0 95px;
         }
 
         .contact-invitation {
-            max-width: 350px;
-            font-size: 14px;
-            line-height: 1.5;
+            max-width: 420px;
+            font-size: 17px;
+            line-height: 1.55;
+            font-weight: 400;
             margin: 0;
         }
 
-        /* RIGHT SIDE */
+        /* RIGHT COLUMN */
 
-        .contact-title {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -1.5px;
-            text-transform: uppercase;
-            margin: 0 0 24px;
+        .contact-right {
+            width: 100%;
         }
 
+        .contact-title {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -1.8px;
+            text-transform: uppercase;
+            margin: 0 0 25px;
+        }
+
+        /* OFFICE DETAILS */
+
         .office-info {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .office-info h2 {
-            font-size: 15px;
-            font-weight: 600;
-            margin: 0 0 8px;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 9px;
         }
 
         .office-info p {
-            font-size: 10px;
-            line-height: 1.35;
+            font-size: 13px;
+            line-height: 1.45;
             margin: 0 0 12px;
         }
 
@@ -141,7 +155,7 @@
             text-decoration: underline;
         }
 
-        /* CONTACT FORM */
+        /* FORM GRID */
 
         .contact-form {
             width: 100%;
@@ -151,7 +165,7 @@
             display: flex !important;
             flex-wrap: wrap !important;
             margin: 0 -10px !important;
-            row-gap: 12px;
+            row-gap: 17px;
         }
 
         .contact-form .form-grid > .form-group {
@@ -169,26 +183,28 @@
 
         .form-group label {
             display: block;
-            font-size: 10px;
-            margin-bottom: 6px;
+            font-size: 13px;
             font-weight: 500;
+            margin-bottom: 7px;
         }
 
         .form-group label span {
             color: #c43c32;
         }
 
+        /* INPUT BOXES */
+
         .serein-input {
             display: block;
             width: 100%;
-            height: 27px;
-            padding: 5px 8px;
+            height: 38px;
+            padding: 8px 10px;
             background: #fff;
             border: 1px solid #c9c9c9;
             border-radius: 4px;
             color: #111;
             font-family: inherit;
-            font-size: 12px;
+            font-size: 14px;
             box-shadow: none;
         }
 
@@ -199,27 +215,29 @@
         }
 
         textarea.serein-input {
-            height: 105px;
+            height: 125px;
+            min-height: 125px;
             resize: vertical;
         }
 
-        /* SUBMIT BUTTON */
+        /* SEND MESSAGE BUTTON */
 
         .btn-serein-submit {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            min-width: 110px;
-            height: 30px;
-            margin-top: 12px;
-            padding: 0 14px;
+            gap: 14px;
+            min-width: 155px;
+            height: 42px;
+            margin-top: 17px;
+            padding: 0 20px;
             border: none;
             border-radius: 0;
             background: #111;
             color: #fff;
-            font-size: 10px;
-            letter-spacing: .02em;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .04em;
             cursor: pointer;
         }
 
@@ -228,7 +246,7 @@
             color: #fff;
         }
 
-        /* RESPONSIVE TABLET */
+        /* TABLET */
 
         @media (max-width: 991px) {
 
@@ -253,25 +271,25 @@
             .contact-left {
                 min-height: auto;
                 padding-top: 20px !important;
-                padding-bottom: 30px !important;
+                padding-bottom: 35px !important;
             }
 
             .contact-intro {
-                margin-bottom: 25px;
+                margin-bottom: 30px;
             }
 
             .contact-title {
-                font-size: 40px;
+                font-size: 48px;
             }
 
             .contact-main::before {
-                width: 90%;
-                height: 500px;
+                width: 100%;
+                height: 550px;
                 top: 0;
             }
         }
 
-        /* RESPONSIVE MOBILE */
+        /* MOBILE */
 
         @media (max-width: 575px) {
 
@@ -281,28 +299,28 @@
             }
 
             .contact-title {
-                font-size: 35px;
+                font-size: 38px;
             }
 
-            .contact-form .form-grid > .form-group {
+            .contact-intro,
+            .contact-invitation {
+                font-size: 15px;
+            }
+
+            .contact-form .form-grid > .form-group,
+            .contact-form .form-grid > .full-width {
                 flex: 0 0 100% !important;
                 width: 100% !important;
                 max-width: 100% !important;
             }
 
-            .contact-form .form-grid > .full-width {
-                flex: 0 0 100% !important;
-                width: 100% !important;
-            }
-
             .contact-main::before {
                 width: 100%;
                 height: 450px;
-                opacity: 0.10;
+                opacity: 0.13;
             }
         }
     </style>
-
 </head>
 
 <body>
