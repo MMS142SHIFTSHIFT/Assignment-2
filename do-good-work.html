@@ -1,11 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEREIN | The Everyday Collection/dogoodwork</title>
-</head>
-<body>
-    
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Do Good Work Tee | SEREIN</title>
+      <link rel="stylesheet" href="style.css">
+      <style>
+     :root {
+       --ink: #111;
+       --chip: #eeeeea;
+       --chip-dark: #a8a8a3;
+       --card: #efefef;
+       --btn: #222;
+       --tan: #d9c9bb;
+      }
+      
+     * { box-sizing: border-box; margin: 0; padding: 0; }
+   
+     /* Page */
+     main { max-width: 1000px; margin: 0 auto; padding: 40px 24px 56px; }
+     .breadcrumb { font-size: 12px; letter-spacing: .03em; margin-bottom: 26px; }
+     .breadcrumb span { margin: 0 6px; }
+   
+     .product { display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(0, 340px); gap: 20px; align-items: start; }
+     .thumbs { display: flex; flex-direction: column; gap: 12px; }
+     .thumbs button { border: 1px solid #555; padding: 0; background: var(--tan); width: 64px; height: 64px; overflow: hidden; }
+     .thumbs button[aria-current="true"] { outline: 2px solid var(--ink); }
+     .thumbs img, .main-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+     .main-image { aspect-ratio: 16 / 11; background: linear-gradient(#e6dcd4, #d8c9bc); overflow: hidden; }
+   
+     .details h1 { font-size: 26px; font-weight: 600; line-height: 1.2; }
+     .price { font-size: 32px; font-weight: 700; margin: 10px 0 14px; }
+     .desc { font-size: 14px; line-height: 1.4; padding-bottom: 18px; border-bottom: 1px solid var(--ink); }
+     .desc span { display: block; max-width: 200px; }
+     .label { font-size: 14px; font-weight: 600; margin: 14px 0 8px; display: block; }
+   
+     .sizes { display: flex; gap: 12px; flex-wrap: wrap; }
+     .size { width: 38px; height: 32px; background: var(--chip); border: 1px solid #ddd; font-size: 13px; }
+     .size[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+   
+     .qty { display: flex; gap: 8px; }
+     .qty button { width: 38px; height: 32px; background: var(--chip-dark); border: 1px solid #888; font-size: 22px; line-height: 1; }
+     .qty input { width: 76px; height: 32px; text-align: center; background: var(--chip); border: 1px solid #ddd; font: inherit; font-size: 14px; }
+   
+     .order { margin-top: 28px; display: inline-flex; align-items: center; gap: 14px; background: var(--btn); color: #fff; border: 0; padding: 0 24px; height: 40px; font-size: 14px; letter-spacing: .02em; }
+     .order:hover, .order:active, .order:focus { background: var(--btn); color: #fff; }
+     .card .view:hover, .card .view:active, .card .view:focus { background: var(--btn); color: #fff; }
+     .msg { font-size: 13px; color: #b3261e; margin-top: 10px; min-height: 18px; }
+   
+     /* Discover more */
+     .discover { margin-top: 36px; }
+     .discover h2 { font-size: 18px; font-weight: 700; letter-spacing: .03em; margin-bottom: 26px; }
+     .cards { display: flex; gap: 76px; justify-content: center; flex-wrap: wrap; }
+     .card { display: flex; width: 285px; height: 76px; background: var(--card); border: 1px solid #ccc; }
+     .card .thumb { width: 88px; background: var(--tan); flex: none; }
+     .card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+     .card .info { padding: 14px 6px 0 6px; }
+     .card .name { font-size: 12px; }
+     .card .row { display: flex; align-items: center; gap: 22px; margin-top: 6px; }
+     .card .p { font-size: 17px; font-weight: 700; color: #a3a3a3; }
+     .card .view { background: var(--btn); color: #fff; font-size: 9px; padding: 5px 8px; white-space: nowrap; }
+   
+     @media (max-width: 760px) {
+       .site-header, .site-footer { padding-left: 20px; padding-right: 20px; }
+       .product { grid-template-columns: 1fr; }
+       .thumbs { flex-direction: row; order: 2; }
+       .cards { gap: 20px; }
+       .brand-right, .brand-right .logo { text-align: left; justify-content: flex-start; }
+     }
+   </style>
+   </head>
+   
+   <body>
+
+    <div class="site-container">
+
+     <header class="site-header">
+       <a href="index.html" class="brand">
+        <img src="images-new/serein-icon.png" alt="" class="brand-icon">
+        <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN" class="brand-wordmark">
+       </a>
+     <nav>
+       <a href="index.html">HOME</a>
+       <a href="shop.html">SHOP</a>
+       <a href="index.html#about">ABOUT</a>
+       <a href="contact.html">CONTACT</a>
+      </nav>
+     </header>
+
+<main>
+  <div class="breadcrumb">
+    <a href="index.html">HOME</a><span>›</span><a href="shop.html">SHOP</a><span>›</span><b>DO GOOD WORK TEE</b>
+  </div>
+
+  <section class="product">
+    <div class="thumbs" id="thumbs">
+      <button type="button" aria-current="true" data-src="images-new/do%20good%20work%20thumbnail%201.png"><img src="images-new/do%20good%20work%20thumbnail%201.png" alt="Model wearing the tee"></button>
+      <button type="button" data-src="images-new/do%20good%20work%20thumbnail%202.png"><img src="images-new/do%20good%20work%20thumbnail%202.png" alt="Folded tee"></button>
+      <button type="button" data-src="images-new/do%20good%20work%20thumbnail%203.png"><img src="images-new/do%20good%20work%20thumbnail%203.png" alt="Two people wearing the tee"></button>
+    </div>
+
+    <div class="main-image"><img id="main-img" src="images-new/do%20good%20work%20big%20thumbnail.png" alt="Do Good Work Tee, front view"></div>
+
+    <div class="details">
+      <h1 id="product-name">Do Good Work Tee</h1>
+      <p class="price" id="product-price">₱499.00</p>
+      <p class="desc"><span>A simple reminder to show up, get moving, and make the most of the day.</span></p>
+
+      <span class="label" id="size-label">Size</span>
+      <div class="sizes" role="group" aria-labelledby="size-label">
+        <button type="button" class="size" aria-pressed="false">S</button>
+        <button type="button" class="size" aria-pressed="false">M</button>
+        <button type="button" class="size" aria-pressed="false">L</button>
+        <button type="button" class="size" aria-pressed="false">XL</button>
+      </div>
+
+      <span class="label">Quantity</span>
+      <div class="qty">
+        <button type="button" id="minus" aria-label="Decrease quantity">−</button>
+        <input id="qty" type="number" value="1" min="1" aria-label="Quantity">
+        <button type="button" id="plus" aria-label="Increase quantity">+</button>
+      </div>
+
+      <button type="button" class="order" id="order-btn">ORDER NOW <span aria-hidden="true">→</span></button>
+      <p class="msg" id="msg" role="alert"></p>
+    </div>
+  </section>
+
+  <section class="discover">
+    <h2>DISCOVER MORE</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="thumb"><img src="images-new/dont%20be%20late%20big%20thumbnail.png" alt=""></div>
+        <div class="info">
+          <p class="name">Don't Be Late Tee</p>
+          <div class="row"><span class="p">₱499</span><a class="view" href="dont-be-late.html">VIEW DETAILS →</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="images-new/everyday%20comfort%20big%20thumbnail.png" alt=""></div>
+        <div class="info">
+          <p class="name">Everyday Comfort Tee</p>
+          <div class="row"><span class="p">₱499</span><a class="view" href="everyday-comfort.html">VIEW DETAILS →</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-column">
+    <span class="footer-heading">EXPLORE</span>
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="shop.html">SHOP</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </div>
+
+  <div class="footer-column">
+    <span class="footer-heading">INFORMATION</span>
+    <div class="footer-links">
+      <a href="privacy.html">PRIVACY AND TERMS</a>
+    </div>
+  </div>
+
+  <div class="footer-column">
+    <span class="footer-heading">FOLLOW US</span>
+    <div class="social-icons">
+      <img src="images-new/media.png" alt="Instagram, Facebook and TikTok">
+    </div>
+  </div>
+
+  <div class="footer-brand">
+    <div class="footer-brand-logo">
+      <img src="images-new/serein-icon.png" alt="" class="footer-icon">
+      <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN" class="footer-wordmark">
+    </div>
+    <p>© 2026 SEREIN. ALL RIGHTS RESERVED</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  var EMAIL = 'orders@examplewebsite142.com';
+  var sizeBtns = document.querySelectorAll('.size');
+  var qtyInput = document.getElementById('qty');
+  var msg = document.getElementById('msg');
+  var selectedSize = '';
+
+  // Size selection
+  sizeBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      sizeBtns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      selectedSize = b.textContent.trim();
+      msg.textContent = '';
+    });
+  });
+
+  // Quantity
+  function setQty(n) { qtyInput.value = Math.max(1, parseInt(n, 10) || 1); }
+  document.getElementById('minus').addEventListener('click', function () { setQty(+qtyInput.value - 1); });
+  document.getElementById('plus').addEventListener('click', function () { setQty(+qtyInput.value + 1); });
+  qtyInput.addEventListener('change', function () { setQty(qtyInput.value); });
+
+  // Thumbnails swap main image
+  var mainImg = document.getElementById('main-img');
+  document.querySelectorAll('#thumbs button').forEach(function (t) {
+    t.addEventListener('click', function () {
+      mainImg.src = t.dataset.src;
+      mainImg.alt = document.getElementById('product-name').textContent.trim() + ' - ' + t.querySelector('img').alt.toLowerCase();
+      document.querySelectorAll('#thumbs button').forEach(function (x) { x.removeAttribute('aria-current'); });
+      t.setAttribute('aria-current', 'true');
+    });
+  });
+
+  // Order now -> opens the visitor's email app with the order details filled in
+  document.getElementById('order-btn').addEventListener('click', function () {
+    if (!selectedSize) { msg.textContent = 'Please choose a size before ordering.'; return; }
+
+    var name  = document.getElementById('product-name').textContent.trim();
+    var price = document.getElementById('product-price').textContent.trim();
+    var qty   = qtyInput.value;
+
+    var subject = 'Order: ' + name;
+    var body =
+      'Hi Serein,\n\n' +
+      'I would like to order this t-shirt:\n\n' +
+      'Product: ' + name + '\n' +
+      'Price: ' + price + '\n' +
+      'Size: ' + selectedSize + '\n' +
+      'Quantity: ' + qty + '\n\n' +
+      'Name: \n' +
+      'Contact number: \n' +
+      'Shipping address: \n\n' +
+      'Thank you!';
+
+    window.location.href = 'mailto:' + EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+  });
+</script>
 </body>
 </html>
