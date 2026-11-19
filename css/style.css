@@ -74,7 +74,7 @@ a {
     width: 100%;
     min-height: 790px;
     padding: 28px 4.5% 30px;
-    background: #F2EFE9;
+    background: #F2F0EC;
 }
 
 .privacy-content {
@@ -135,34 +135,43 @@ a {
 
 /* BACKGROUND WATERMARKS */
 
+.privacy-page {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
 .watermark-top,
 .watermark-main {
     position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    background-image: url("../images-new/background logo.png");
+    background-image: url("../images-new/background%20logo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.14;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .watermark-top {
-    width: 160px;
-    height: 160px;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 350px;
+    height: 350px;
+    top: 30px;
+    right: -80px;
 }
 
 .watermark-main {
-    width: 440px;
-    height: 440px;
-    top: 175px;
+    width: 550px;
+    height: 550px;
+    top: 450px;
     left: 50%;
     transform: translateX(-50%);
 }
 
+.privacy-content {
+    position: relative;
+    z-index: 1;
+}
 /* FOOTER */
 
 .site-footer {
