@@ -204,18 +204,13 @@ a {
 .social-icons {
     display: flex;
     align-items: center;
-    gap: 14px;
 }
 
-.social-icons span {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFF;
-    font-size: 20px;
-    font-weight: 700;
+.social-icons img {
+    width: 85px;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .footer-brand {
