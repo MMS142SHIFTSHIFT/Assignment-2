@@ -1,22 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Everyday Comfort | SEREIN</title>
+  <title>Everyday Comfort Tee | SEREIN</title>
   <link rel="stylesheet" href="css/style.css">
 
   <style>
     * {
       box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
-      color: #111;
     }
 
     .product-detail-page main {
@@ -25,8 +17,20 @@
       overflow: hidden;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 65px 30px 85px;
+      padding: 40px 30px 80px;
       background: #fff;
+    }
+
+    .breadcrumb {
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 35px;
+      color: #777;
+    }
+
+    .breadcrumb a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .product-layout {
@@ -43,12 +47,12 @@
     }
 
     .product-thumbnails button {
+      width: 70px;
+      height: 85px;
       padding: 0;
       border: 1px solid #ddd;
       background: transparent;
       cursor: pointer;
-      width: 70px;
-      height: 85px;
       overflow: hidden;
     }
 
@@ -60,11 +64,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-    }
-
-    .product-main-image {
-      width: 100%;
       display: block;
     }
 
@@ -137,11 +136,11 @@
 
     .quantity-control button {
       flex: 1;
+      height: 100%;
       border: 0;
       background: transparent;
       cursor: pointer;
       font-size: 16px;
-      height: 100%;
     }
 
     .quantity-control span {
@@ -216,10 +215,6 @@
         height: 65px;
       }
 
-      .product-main-image {
-        grid-column: 2;
-      }
-
       .product-information {
         grid-column: 1 / -1;
         padding: 25px 0 0;
@@ -251,25 +246,32 @@
   </header>
 
   <main>
+
+    <div class="breadcrumb">
+      <a href="index.html">HOME</a> &nbsp;›&nbsp;
+      <a href="shop.html">SHOP</a> &nbsp;›&nbsp;
+      EVERYDAY COMFORT TEE
+    </div>
+
     <section class="product-layout">
 
       <div class="product-thumbnails">
         <button class="active" type="button"
-          data-image="images-new/everyday%20comfort%20thumbnail%201%20hires.png">
+          data-hires="images-new/everyday%20comfort%20thumbnail%201%20hires.png">
           <img src="images-new/everyday%20comfort%20thumbnail%201.png"
-            alt="Everyday Comfort view 1">
+            alt="Everyday Comfort thumbnail 1">
         </button>
 
         <button type="button"
-          data-image="images-new/everyday%20comfort%20thumbnail%202%20hires.png">
+          data-hires="images-new/everyday%20comfort%20thumbnail%202%20hires.png">
           <img src="images-new/everyday%20comfort%20thumbnail%202.png"
-            alt="Everyday Comfort view 2">
+            alt="Everyday Comfort thumbnail 2">
         </button>
 
         <button type="button"
-          data-image="images-new/everyday%20comfort%20thumbnail%203%20hires.png">
+          data-hires="images-new/everyday%20comfort%20thumbnail%203%20hires.png">
           <img src="images-new/everyday%20comfort%20thumbnail%203.png"
-            alt="Everyday Comfort view 3">
+            alt="Everyday Comfort thumbnail 3">
         </button>
       </div>
 
@@ -285,9 +287,8 @@
         <p class="product-price">₱499.00</p>
 
         <p class="product-description">
-          Designed for everyday wear, the Everyday Comfort Tee brings
-          together a relaxed feel and effortless style. A simple essential
-          made to fit into your daily routine.
+          A comfortable everyday essential designed for effortless style
+          and daily wear.
         </p>
 
         <span class="product-option-label">SELECT SIZE</span>
@@ -329,6 +330,7 @@
         </a>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -361,7 +363,7 @@
   </footer>
 
   <script>
-    // Change the main product image when a thumbnail is clicked
+    // Product image thumbnails
     const thumbnailButtons = document.querySelectorAll(
       ".product-thumbnails button"
     );
@@ -370,7 +372,7 @@
 
     thumbnailButtons.forEach(button => {
       button.addEventListener("click", () => {
-        mainProductImage.src = button.dataset.image;
+        mainProductImage.src = button.dataset.hires;
 
         thumbnailButtons.forEach(item => {
           item.classList.remove("active");
@@ -380,7 +382,7 @@
       });
     });
 
-    // Select product size
+    // Size selection
     const sizeButtons = document.querySelectorAll(".size-options button");
     let selectedSize = "";
 
@@ -418,6 +420,7 @@
       }
 
       const subject = encodeURIComponent("Everyday Comfort Tee Order");
+
       const body = encodeURIComponent(
         "Product: Everyday Comfort Tee\n" +
         "Size: " + selectedSize + "\n" +
