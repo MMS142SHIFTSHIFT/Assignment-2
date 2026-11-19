@@ -78,16 +78,20 @@ a {
     background: #F2F0EC;
 }
 
-/* CENTERED BACKGROUND WATERMARK */
+/* RESPONSIVE CENTERED WATERMARK */
 
 .privacy-page::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80vw, 900px);
+    height: 100%;
     background-image: url("../images-new/serein%20watermark.png");
     background-repeat: no-repeat;
-    background-position: center -55px;
-    background-size: 600px auto;
+    background-position: center top;
+    background-size: 100% auto;
     pointer-events: none;
     z-index: 0;
 }
@@ -260,8 +264,8 @@ a {
     }
 
     .privacy-page::before {
-        background-size: 90% auto;
-        background-position: center -30px;
+        width: 110vw;
+        background-position: center top;
     }
 
     .privacy-content h1 {
