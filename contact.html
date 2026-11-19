@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | SEREIN</title>
 
-    <!-- Bootstrap CSS: must come before custom CSS -->
+    <!-- BOOTSTRAP CSS -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    <!-- SEREIN Custom CSS -->
+    <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -27,25 +26,29 @@
             color: #111;
         }
 
-        /* CONTACT MAIN */
+        /* CONTACT MAIN AREA */
 
         .contact-main {
             position: relative;
             isolation: isolate;
-            overflow: hidden;
+            width: 100%;
+            min-height: 820px;
+            padding: 24px 0 65px;
             background: #f2f0ec;
-            padding: 55px 0 65px;
+            overflow: hidden;
         }
+
+        /* WATERMARK */
 
         .contact-main::before {
             content: "";
             position: absolute;
             z-index: -1;
             pointer-events: none;
-            top: 20px;
-            left: 4%;
-            width: 48%;
-            height: 95%;
+            left: 3%;
+            top: 80px;
+            width: 55%;
+            height: 690px;
             background-image: url("images-new/serein%20watermark.png");
             background-repeat: no-repeat;
             background-position: center;
@@ -54,68 +57,83 @@
         }
 
         .contact-wrapper {
-            max-width: 1100px;
+            width: 100%;
+            max-width: 1260px;
+            padding-left: 24px;
+            padding-right: 24px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
+
+        /* IMPORTANT: CONTROL BOOTSTRAP GRID */
 
         .contact-row {
-            align-items: center;
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            align-items: flex-start !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            gap: 0;
         }
 
-        /* LEFT COLUMN */
+        .contact-row > .contact-left {
+            flex: 0 0 50% !important;
+            width: 50% !important;
+            max-width: 50% !important;
+            padding: 0 55px 0 0 !important;
+        }
+
+        .contact-row > .contact-right {
+            flex: 0 0 50% !important;
+            width: 50% !important;
+            max-width: 50% !important;
+            padding: 0 0 0 10px !important;
+        }
+
+        /* LEFT SIDE TEXT */
 
         .contact-left {
-            min-height: 460px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-right: 70px;
+            padding-top: 150px !important;
         }
 
         .contact-intro {
-            max-width: 390px;
-            font-size: 15px;
-            line-height: 1.55;
-            margin-bottom: 65px;
+            max-width: 350px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 95px;
         }
 
         .contact-invitation {
-            max-width: 360px;
-            font-size: 15px;
-            line-height: 1.55;
-            margin-bottom: 0;
+            max-width: 350px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
         }
 
-        /* RIGHT COLUMN */
-
-        .contact-right {
-            width: 100%;
-        }
+        /* RIGHT SIDE */
 
         .contact-title {
             font-size: 48px;
+            font-weight: 800;
             line-height: 1;
-            font-weight: 700;
+            letter-spacing: -1.5px;
             text-transform: uppercase;
-            margin: 0 0 25px;
+            margin: 0 0 24px;
         }
 
         .office-info {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .office-info h2 {
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0 0 8px;
         }
 
         .office-info p {
-            font-size: 12px;
-            line-height: 1.45;
-            margin-bottom: 12px;
+            font-size: 10px;
+            line-height: 1.35;
+            margin: 0 0 12px;
         }
 
         .office-info a {
@@ -123,17 +141,37 @@
             text-decoration: underline;
         }
 
-        /* FORM */
+        /* CONTACT FORM */
 
-        .form-grid {
-            row-gap: 16px;
+        .contact-form {
+            width: 100%;
+        }
+
+        .contact-form .form-grid {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            margin: 0 -10px !important;
+            row-gap: 12px;
+        }
+
+        .contact-form .form-grid > .form-group {
+            flex: 0 0 50% !important;
+            width: 50% !important;
+            max-width: 50% !important;
+            padding: 0 10px !important;
+        }
+
+        .contact-form .form-grid > .full-width {
+            flex: 0 0 100% !important;
+            width: 100% !important;
+            max-width: 100% !important;
         }
 
         .form-group label {
             display: block;
-            font-size: 12px;
+            font-size: 10px;
+            margin-bottom: 6px;
             font-weight: 500;
-            margin-bottom: 7px;
         }
 
         .form-group label span {
@@ -141,42 +179,47 @@
         }
 
         .serein-input {
+            display: block;
             width: 100%;
-            min-height: 36px;
-            padding: 8px 10px;
+            height: 27px;
+            padding: 5px 8px;
+            background: #fff;
             border: 1px solid #c9c9c9;
             border-radius: 4px;
-            background: #fff;
             color: #111;
             font-family: inherit;
-            font-size: 13px;
+            font-size: 12px;
+            box-shadow: none;
         }
 
         .serein-input:focus {
             border-color: #111;
             box-shadow: none;
+            outline: none;
         }
 
         textarea.serein-input {
-            min-height: 105px;
+            height: 105px;
             resize: vertical;
         }
+
+        /* SUBMIT BUTTON */
 
         .btn-serein-submit {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            min-width: 120px;
-            height: 38px;
-            padding: 0 18px;
-            margin-top: 20px;
+            min-width: 110px;
+            height: 30px;
+            margin-top: 12px;
+            padding: 0 14px;
             border: none;
+            border-radius: 0;
             background: #111;
             color: #fff;
-            font-family: inherit;
-            font-size: 11px;
-            letter-spacing: .04em;
+            font-size: 10px;
+            letter-spacing: .02em;
             cursor: pointer;
         }
 
@@ -185,32 +228,32 @@
             color: #fff;
         }
 
-        /* TABLET */
+        /* RESPONSIVE TABLET */
 
         @media (max-width: 991px) {
+
             .contact-main {
-                padding: 45px 25px 55px;
+                min-height: auto;
+                padding: 45px 0 60px;
             }
 
-            .contact-left {
-                padding-right: 30px;
+            .contact-row {
+                flex-wrap: wrap !important;
             }
 
-            .contact-title {
-                font-size: 38px;
-            }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 767px) {
-            .contact-main {
-                padding: 40px 22px 55px;
+            .contact-row > .contact-left,
+            .contact-row > .contact-right {
+                flex: 0 0 100% !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
             .contact-left {
                 min-height: auto;
-                padding: 10px 0 25px;
+                padding-top: 20px !important;
+                padding-bottom: 30px !important;
             }
 
             .contact-intro {
@@ -218,20 +261,44 @@
             }
 
             .contact-title {
-                font-size: 36px;
+                font-size: 40px;
             }
 
             .contact-main::before {
+                width: 90%;
+                height: 500px;
                 top: 0;
-                left: 0;
-                width: 100%;
-                height: 60%;
-                opacity: 0.10;
+            }
+        }
+
+        /* RESPONSIVE MOBILE */
+
+        @media (max-width: 575px) {
+
+            .contact-wrapper {
+                padding-left: 22px;
+                padding-right: 22px;
             }
 
-            .site-footer {
-                padding-left: 20px;
-                padding-right: 20px;
+            .contact-title {
+                font-size: 35px;
+            }
+
+            .contact-form .form-grid > .form-group {
+                flex: 0 0 100% !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .contact-form .form-grid > .full-width {
+                flex: 0 0 100% !important;
+                width: 100% !important;
+            }
+
+            .contact-main::before {
+                width: 100%;
+                height: 450px;
+                opacity: 0.10;
             }
         }
     </style>
@@ -275,21 +342,21 @@
 
             <div class="container-fluid contact-wrapper">
 
-                <div class="row contact-row gy-5">
+                <div class="row contact-row">
 
                     <!-- LEFT COLUMN -->
 
                     <section class="col-lg-6 contact-left">
 
                         <p class="contact-intro">
-                            For any inquiries, collaborations, or just to say
-                            hello, we'd love to hear from you! Reach out,
-                            and let's connect!
+                            For any inquiries, collaborations, or just
+                            to say hello, we'd love to hear from you!
+                            Reach out, and let's connect!
                         </p>
 
                         <p class="contact-invitation">
-                            Got something to say? Fill out this form and our
-                            team will get back to you!
+                            Got something to say? Fill out this form
+                            and our team will get back to you!
                         </p>
 
                     </section>
@@ -324,7 +391,7 @@
 
                         <form id="contactForm">
 
-                            <div class="row g-3 form-grid">
+                            <div class="row form-grid">
 
                                 <div class="col-md-6 form-group">
                                     <label for="name">
@@ -385,7 +452,7 @@
                                     >
                                 </div>
 
-                                <div class="col-12 form-group">
+                                <div class="col-12 form-group full-width">
                                     <label for="message">
                                         Message<span>*</span>
                                     </label>
@@ -509,20 +576,18 @@
                     "Phone: " + phone + "\n\n" +
                     "Message:\n" + message;
 
-                const encodedSubject = encodeURIComponent(subject);
-                const encodedBody = encodeURIComponent(bodyText);
-
                 window.location.href =
                     "mailto:" + recipient +
-                    "?subject=" + encodedSubject +
-                    "&body=" + encodedBody;
+                    "?subject=" + encodeURIComponent(subject) +
+                    "&body=" + encodeURIComponent(bodyText);
 
             });
 
         });
     </script>
 
-    <!-- Bootstrap JavaScript -->
+    <!-- BOOTSTRAP JAVASCRIPT -->
+
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
