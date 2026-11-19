@@ -22,13 +22,18 @@
         /* PRODUCT PAGE */
 
         .product-detail-page main {
+            position: relative;
+            isolation: isolate;
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 24px 56px;
             background: #fff;
+            overflow: hidden;
         }
 
         .breadcrumb {
+            position: relative;
+            z-index: 1;
             font-size: 12px;
             letter-spacing: .03em;
             margin-bottom: 26px;
@@ -41,6 +46,8 @@
         /* PRODUCT LAYOUT */
 
         .product {
+            position: relative;
+            z-index: 1;
             display: grid;
             grid-template-columns: 70px minmax(0, 1fr) minmax(0, 340px);
             gap: 20px;
@@ -81,7 +88,6 @@
         .main-image {
             width: 100%;
             height: auto;
-            aspect-ratio: auto;
             background: #fff;
             overflow: hidden;
         }
@@ -210,6 +216,8 @@
         /* DISCOVER MORE */
 
         .discover {
+            position: relative;
+            z-index: 1;
             margin-top: 36px;
         }
 
@@ -337,42 +345,51 @@
 
             <section class="product">
 
-                <!-- THUMBNAILS -->
+                <!-- SMALL THUMBNAILS -->
 
                 <div class="thumbs" id="thumbs">
 
-                    <button type="button"
+                    <button
+                        type="button"
                         aria-current="true"
-                        data-src="images-new/do%20good%20work%20thumbnail%201%20hires.png">
-
-                        <img src="images-new/do%20good%20work%20thumbnail%201.png"
-                            alt="Model wearing the tee">
+                        data-hires="images-new/do%20good%20work%20thumbnail%201%20hires.png"
+                    >
+                        <img
+                            src="images-new/do%20good%20work%20thumbnail%201.png"
+                            alt="Model wearing the tee"
+                        >
                     </button>
 
-                    <button type="button"
-                        data-src="images-new/do%20good%20work%20thumbnail%202%20hires.png">
-
-                        <img src="images-new/do%20good%20work%20thumbnail%202.png"
-                            alt="Folded tee">
+                    <button
+                        type="button"
+                        data-hires="images-new/do%20good%20work%20thumbnail%202%20hires.png"
+                    >
+                        <img
+                            src="images-new/do%20good%20work%20thumbnail%202.png"
+                            alt="Folded tee"
+                        >
                     </button>
 
-                    <button type="button"
-                        data-src="images-new/do%20good%20work%20thumbnail%203%20hires.png">
-
-                        <img src="images-new/do%20good%20work%20thumbnail%203.png"
-                            alt="Two people wearing the tee">
+                    <button
+                        type="button"
+                        data-hires="images-new/do%20good%20work%20thumbnail%203%20hires.png"
+                    >
+                        <img
+                            src="images-new/do%20good%20work%20thumbnail%203.png"
+                            alt="Two people wearing the tee"
+                        >
                     </button>
 
                 </div>
 
-                <!-- MAIN HIGH-RESOLUTION IMAGE -->
+                <!-- DEFAULT MAIN PRODUCT PHOTO -->
 
                 <div class="main-image">
 
                     <img
                         id="main-img"
-                        src="images-new/do%20good%20work%20thumbnail%201%20hires.png"
-                        alt="Do Good Work Tee, model wearing the shirt"
+                        src="images-new/do%20good%20work%20big%20thumbnail.png"
+                        alt="Do Good Work Tee"
                     >
 
                 </div>
@@ -442,8 +459,10 @@
                     <article class="card">
 
                         <div class="thumb">
-                            <img src="images-new/dont%20be%20late%20big%20thumbnail.png"
-                                alt="Don't Be Late Tee">
+                            <img
+                                src="images-new/dont%20be%20late%20big%20thumbnail.png"
+                                alt="Don't Be Late Tee"
+                            >
                         </div>
 
                         <div class="info">
@@ -462,8 +481,10 @@
                     <article class="card">
 
                         <div class="thumb">
-                            <img src="images-new/everyday%20comfort%20big%20thumbnail.png"
-                                alt="Everyday Comfort Tee">
+                            <img
+                                src="images-new/everyday%20comfort%20big%20thumbnail.png"
+                                alt="Everyday Comfort Tee"
+                            >
                         </div>
 
                         <div class="info">
@@ -517,8 +538,10 @@
                 <span class="footer-heading">FOLLOW US</span>
 
                 <div class="social-icons">
-                    <img src="images-new/media.png"
-                        alt="Instagram, Facebook and TikTok">
+                    <img
+                        src="images-new/media.png"
+                        alt="Instagram, Facebook and TikTok"
+                    >
                 </div>
 
             </div>
@@ -538,7 +561,7 @@
 
     </div>
 
-    <!-- JAVASCRIPT INTERACTIONS -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
@@ -569,7 +592,7 @@
 
         });
 
-        /* QUANTITY */
+        /* QUANTITY CONTROLS */
 
         function setQty(number) {
 
@@ -582,19 +605,19 @@
 
         document.getElementById('minus')
             .addEventListener('click', function () {
-                setQty(+qtyInput.value - 1);
+                setQty(Number(qtyInput.value) - 1);
             });
 
         document.getElementById('plus')
             .addEventListener('click', function () {
-                setQty(+qtyInput.value + 1);
+                setQty(Number(qtyInput.value) + 1);
             });
 
         qtyInput.addEventListener('change', function () {
             setQty(qtyInput.value);
         });
 
-        /* HIGH-RESOLUTION THUMBNAIL SWITCHING */
+        /* THUMBNAIL IMAGE SWITCHING */
 
         var mainImg = document.getElementById('main-img');
 
@@ -603,13 +626,8 @@
 
                 thumbnail.addEventListener('click', function () {
 
-                    mainImg.src = thumbnail.dataset.src;
-
-                    mainImg.alt =
-                        document.getElementById('product-name')
-                            .textContent.trim()
-                        + ' - '
-                        + thumbnail.querySelector('img').alt.toLowerCase();
+                    mainImg.src = thumbnail.dataset.hires;
+                    mainImg.alt = thumbnail.querySelector('img').alt;
 
                     document.querySelectorAll('#thumbs button')
                         .forEach(function (item) {
