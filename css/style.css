@@ -20,8 +20,8 @@ a {
 
 .site-container {
     width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
 }
 
 /* HEADER */
@@ -168,7 +168,7 @@ a {
 .site-footer {
     width: 100%;
     min-height: 120px;
-    padding: 17px 35px;
+    padding: 17px max(35px, calc((100% - 1440px) / 2));
     background: #111;
     color: #FFF;
     display: grid;
