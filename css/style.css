@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -78,8 +79,6 @@ a {
     background: #F2F0EC;
 }
 
-/* RESPONSIVE CENTERED WATERMARK */
-
 .privacy-page::before {
     content: "";
     position: absolute;
@@ -150,6 +149,60 @@ a {
     line-height: 1.4;
     padding-left: 0;
     margin-bottom: 12px;
+}
+
+/* PRODUCT DETAIL PAGES */
+
+.product-detail-page {
+    background: #FFFFFF;
+}
+
+.product-detail-page main {
+    position: relative;
+    isolation: isolate;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+/* PRODUCT PAGE WATERMARK */
+
+.product-detail-page main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80vw, 750px);
+    height: 100%;
+    background-image: url("../images-new/serein%20watermark.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: 100% auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.product-detail-page main > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* PRODUCT IMAGE - PRESERVE ORIGINAL PROPORTIONS */
+
+.product-detail-page .main-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.product-detail-page .main-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
 }
 
 /* FOOTER */
@@ -274,6 +327,17 @@ a {
 
     .privacy-section h2 {
         font-size: 25px;
+    }
+
+    .product-detail-page main::before {
+        width: 100%;
+        background-size: 100% auto;
+    }
+
+    .product-detail-page .main-image img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .site-footer {
