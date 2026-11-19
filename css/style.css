@@ -10,21 +10,12 @@ body {
     width: 100%;
     font-family: 'Inter', sans-serif;
     color: #111;
-    background-color: #F4F0E8;
-    background-image: url("../images-new/background logo.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-color: #F2EFE9;
 }
 
-h1 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 48px;
-}
-
-h2, h3 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 32px;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .site-container {
@@ -33,10 +24,12 @@ h2, h3 {
     margin: 0 auto;
 }
 
+/* HEADER */
+
 .site-header {
     width: 100%;
-    min-height: 80px;
-    padding: 0 30px;
+    height: 80px;
+    padding: 0 45px;
     background: #111;
     display: flex;
     justify-content: space-between;
@@ -46,136 +39,281 @@ h2, h3 {
 .brand {
     display: flex;
     align-items: center;
+    gap: 16px;
     height: 100%;
 }
 
-.brand img {
-    width: 150px;
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.brand-wordmark {
+    width: 145px;
     height: auto;
+    object-fit: contain;
 }
 
 .site-header nav {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    gap: 35px;
+    gap: 30px;
 }
 
 .site-header nav a {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     color: #FFF;
-    text-decoration: none;
 }
+
+/* PRIVACY POLICY */
 
 .privacy-page {
     position: relative;
-    min-height: 700px;
-    padding: 70px 8%;
+    isolation: isolate;
+    width: 100%;
+    min-height: 790px;
+    padding: 28px 4.5% 30px;
+}
+
+.privacy-page::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    width: 650px;
+    height: 650px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("../images-new/background logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.12;
 }
 
 .privacy-content {
-    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .privacy-content h1 {
-    margin-bottom: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 .privacy-date {
-    margin-bottom: 40px;
-    font-size: 14px;
-    color: #666;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.intro-section p {
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 14px;
 }
 
 .privacy-section {
-    margin-bottom: 35px;
+    margin-top: 34px;
 }
 
 .privacy-section h2 {
-    margin-bottom: 15px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 .privacy-section p {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 13px;
+    line-height: 1.4;
     margin-bottom: 15px;
 }
 
+.definitions-section {
+    margin-top: 27px;
+}
+
+.definitions-section ul {
+    padding-left: 19px;
+    margin-top: 12px;
+}
+
+.definitions-section li {
+    font-size: 13px;
+    line-height: 1.4;
+    padding-left: 0;
+    margin-bottom: 12px;
+}
+
+/* FOOTER */
+
 .site-footer {
     width: 100%;
-    min-height: 150px;
-    padding: 30px;
+    min-height: 114px;
+    padding: 17px 35px;
     background: #111;
-    display: flex;
-    gap: 70px;
+    color: #FFF;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr 1.4fr;
     align-items: center;
+    gap: 20px;
 }
 
-.site-footer div {
+.footer-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
 }
 
-.site-footer a {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+.footer-heading {
+    font-size: 10px;
+    font-weight: 400;
+    color: #999;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 28px;
+    row-gap: 5px;
+}
+
+.footer-links a {
+    font-size: 11px;
     font-weight: 400;
     color: #FFF;
-    text-decoration: none;
 }
 
-.site-footer b {
-    font-family: 'Manrope', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #FFF;
-}
-
-.footer-logo {
+.follow-column .social-icons {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    gap: 14px;
 }
 
-.footer-logo img {
-    display: block;
-    width: 130px;
-    height: auto;
-    margin: 0;
-    padding: 0;
+.social-icons span {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.social-icons svg {
+    width: 19px;
+    height: 19px;
+    fill: #FFF;
+}
+
+.social-icons svg rect,
+.social-icons svg circle:not(.facebook-circle) {
+    fill: none;
+    stroke: #FFF;
+    stroke-width: 2;
+}
+
+.social-icons svg .social-dot {
+    fill: #FFF;
+    stroke: none;
+}
+
+.social-icons svg .facebook-circle {
+    fill: #FFF;
+}
+
+.social-icons svg .facebook-letter {
+    fill: #111;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.footer-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.footer-wordmark {
+    width: 105px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-brand p {
+    font-size: 10px;
+    font-weight: 600;
+    text-align: right;
+}
+
+/* RESPONSIVE LAYOUT */
 
 @media (max-width: 768px) {
     .site-header {
         height: auto;
-        padding: 20px;
-        flex-direction: column;
-        gap: 20px;
+        min-height: 75px;
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .brand-wordmark {
+        width: 115px;
     }
 
     .site-header nav {
-        gap: 15px;
+        gap: 14px;
         flex-wrap: wrap;
     }
 
     .site-header nav a {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 36px;
+        font-size: 12px;
     }
 
     .privacy-page {
-        padding: 40px 6%;
+        min-height: auto;
+        padding: 30px 22px 45px;
+    }
+
+    .privacy-page::before {
+        width: 90%;
+        height: 500px;
+    }
+
+    .privacy-content h1 {
+        font-size: 27px;
+    }
+
+    .privacy-section h2 {
+        font-size: 25px;
     }
 
     .site-footer {
-        flex-wrap: wrap;
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 25px 20px;
+        gap: 25px;
+    }
+
+    .footer-brand {
+        align-items: flex-start;
+    }
+
+    .footer-brand p {
+        text-align: left;
     }
 }
