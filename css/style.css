@@ -72,17 +72,24 @@ a {
 .contact-main {
     position: relative;
     overflow: hidden;
+    background-image: url('../images-new/background-logo.png');
     background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: contain;
+    background-position: -120px center;
+    background-size: 650px auto;
 }
 
 .contact-wrapper {
     padding-left: 45px;
     padding-right: 45px;
+    position: relative;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
+    .contact-main {
+        background-size: 380px auto;
+        background-position: -80px 40px;
+    }
     .contact-wrapper {
         padding-left: 20px;
         padding-right: 20px;
