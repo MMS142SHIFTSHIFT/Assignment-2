@@ -1,438 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Everyday Comfort Tee | SEREIN</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everyday Comfort Tee | SEREIN</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <link rel="stylesheet" href="css/style.css">
 
-    .product-detail-page main {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 30px 80px;
-      background: #fff;
-    }
+    <style>
+        :root {
+            --ink: #111;
+            --chip: #eeeeea;
+            --chip-dark: #a8a8a3;
+            --card: #efefef;
+            --btn: #222;
+            --tan: #d9c9bb;
+        }
 
-    .breadcrumb {
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 35px;
-      color: #777;
-    }
+        /* PRODUCT PAGE */
 
-    .breadcrumb a {
-      color: inherit;
-      text-decoration: none;
-    }
+        .product-detail-page main {
+            position: relative;
+            isolation: isolate;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px 56px;
+            background: #fff;
+            overflow: hidden;
+        }
 
-    .product-layout {
-      display: grid;
-      grid-template-columns: 70px minmax(0, 1fr) minmax(0, 340px);
-      gap: 20px;
-      align-items: start;
-    }
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            font-size: 12px;
+            letter-spacing: .03em;
+            margin-bottom: 26px;
+        }
 
-    .product-thumbnails {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+        .breadcrumb span {
+            margin: 0 6px;
+        }
 
-    .product-thumbnails button {
-      width: 70px;
-      height: 85px;
-      padding: 0;
-      border: 1px solid #ddd;
-      background: transparent;
-      cursor: pointer;
-      overflow: hidden;
-    }
+        /* PRODUCT LAYOUT */
 
-    .product-thumbnails button.active {
-      border: 1px solid #111;
-    }
+        .product {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 70px minmax(0, 1fr) minmax(0, 340px);
+            gap: 20px;
+            align-items: start;
+        }
 
-    .product-thumbnails img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+        /* THUMBNAILS */
 
-    .product-main-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+        .thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    .product-information {
-      padding-left: 10px;
-    }
+        .thumbs button {
+            border: 1px solid #555;
+            padding: 0;
+            background: var(--tan);
+            width: 64px;
+            height: 64px;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-    .product-information h1 {
-      font-size: 25px;
-      font-weight: 600;
-      margin: 0 0 10px;
-    }
+        .thumbs button[aria-current="true"] {
+            outline: 2px solid var(--ink);
+        }
 
-    .product-price {
-      font-size: 17px;
-      margin: 0 0 25px;
-    }
+        .thumbs img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-    .product-description {
-      font-size: 13px;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 30px;
-    }
+        /* MAIN PRODUCT IMAGE */
 
-    .product-option-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+        .main-image {
+            width: 100%;
+            height: auto;
+            background: #fff;
+            overflow: hidden;
+        }
 
-    .size-options {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 25px;
-    }
+        .main-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
 
-    .size-options button {
-      width: 38px;
-      height: 38px;
-      border: 1px solid #ccc;
-      background: #fff;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 12px;
-    }
+        /* PRODUCT DETAILS */
 
-    .size-options button.selected {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
+        .details h1 {
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
 
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      width: 115px;
-      height: 38px;
-      border: 1px solid #ccc;
-      margin-bottom: 25px;
-    }
+        .price {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 10px 0 14px;
+        }
 
-    .quantity-control button {
-      flex: 1;
-      height: 100%;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      font-size: 16px;
-    }
+        .desc {
+            font-size: 14px;
+            line-height: 1.4;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--ink);
+        }
 
-    .quantity-control span {
-      flex: 1;
-      text-align: center;
-      font-size: 13px;
-    }
+        .desc span {
+            display: block;
+            max-width: 200px;
+        }
 
-    .order-button {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      background: #111;
-      color: #fff;
-      border: 1px solid #111;
-      text-align: center;
-      font-family: inherit;
-      font-size: 12px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      text-decoration: none;
-    }
+        .label {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 14px 0 8px;
+            display: block;
+        }
 
-    .order-button:hover {
-      background: #333;
-    }
+        /* SIZE BUTTONS */
 
-    .discover-more {
-      margin-top: 80px;
-    }
+        .sizes {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-    .discover-more h2 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 25px;
-    }
+        .size {
+            width: 38px;
+            height: 32px;
+            background: var(--chip);
+            border: 1px solid #ddd;
+            font-size: 13px;
+            cursor: pointer;
+        }
 
-    .discover-products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+        .size[aria-pressed="true"] {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+        }
 
-    .discover-products a {
-      text-decoration: none;
-      color: #111;
-    }
+        /* QUANTITY */
 
-    .discover-products img {
-      width: 100%;
-      display: block;
-      margin-bottom: 10px;
-    }
+        .qty {
+            display: flex;
+            gap: 8px;
+        }
 
-    .discover-products p {
-      font-size: 13px;
-      margin: 0;
-    }
+        .qty button {
+            width: 38px;
+            height: 32px;
+            background: var(--chip-dark);
+            border: 1px solid #888;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+        }
 
-    @media (max-width: 700px) {
-      .product-detail-page main {
-        padding: 35px 18px 60px;
-      }
+        .qty input {
+            width: 76px;
+            height: 32px;
+            text-align: center;
+            background: var(--chip);
+            border: 1px solid #ddd;
+            font: inherit;
+            font-size: 14px;
+        }
 
-      .product-layout {
-        grid-template-columns: 55px minmax(0, 1fr);
-        gap: 12px;
-      }
+        /* ORDER BUTTON */
 
-      .product-thumbnails button {
-        width: 55px;
-        height: 65px;
-      }
+        .order {
+            margin-top: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--btn);
+            color: #fff;
+            border: 0;
+            padding: 0 24px;
+            height: 40px;
+            font-size: 14px;
+            letter-spacing: .02em;
+            cursor: pointer;
+        }
 
-      .product-information {
-        grid-column: 1 / -1;
-        padding: 25px 0 0;
-      }
+        .order:hover,
+        .order:active,
+        .order:focus {
+            background: var(--btn);
+            color: #fff;
+        }
 
-      .discover-more {
-        margin-top: 55px;
-      }
-    }
-  </style>
+        .msg {
+            font-size: 13px;
+            color: #b3261e;
+            margin-top: 10px;
+            min-height: 18px;
+        }
+
+        /* DISCOVER MORE */
+
+        .discover {
+            position: relative;
+            z-index: 1;
+            margin-top: 36px;
+        }
+
+        .discover h2 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: .03em;
+            margin-bottom: 26px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 76px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            display: flex;
+            width: 285px;
+            height: 76px;
+            background: var(--card);
+            border: 1px solid #ccc;
+        }
+
+        .card .thumb {
+            width: 88px;
+            background: var(--tan);
+            flex: none;
+        }
+
+        .card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card .info {
+            padding: 14px 6px 0;
+        }
+
+        .card .name {
+            font-size: 12px;
+        }
+
+        .card .row {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin-top: 6px;
+        }
+
+        .card .p {
+            font-size: 17px;
+            font-weight: 700;
+            color: #a3a3a3;
+        }
+
+        .card .view {
+            background: var(--btn);
+            color: #fff;
+            font-size: 9px;
+            padding: 5px 8px;
+            white-space: nowrap;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 760px) {
+
+            .product-detail-page main {
+                padding: 30px 20px 45px;
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbs {
+                flex-direction: row;
+                order: 2;
+            }
+
+            .cards {
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body class="product-detail-page">
 
-  <header>
-    <div class="header-logo">
-      <a href="index.html">
-        <img src="images-new/serein-icon.png" alt="SEREIN Icon">
-        <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN">
-      </a>
+    <div class="site-container">
+
+        <!-- HEADER -->
+
+        <header class="site-header">
+
+            <a href="index.html" class="brand">
+                <img src="images-new/serein-icon.png" alt="" class="brand-icon">
+                <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN" class="brand-wordmark">
+            </a>
+
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="shop.html">SHOP</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+
+        </header>
+
+        <!-- PRODUCT CONTENT -->
+
+        <main>
+
+            <div class="breadcrumb">
+                <a href="index.html">HOME</a>
+                <span>›</span>
+                <a href="shop.html">SHOP</a>
+                <span>›</span>
+                <b>EVERYDAY COMFORT TEE</b>
+            </div>
+
+            <section class="product">
+
+                <!-- SMALL THUMBNAILS -->
+
+                <div class="thumbs" id="thumbs">
+
+                    <button
+                        type="button"
+                        aria-current="true"
+                        data-hires="images-new/everyday%20comfort%20thumbnail%201%20hires.png"
+                    >
+                        <img
+                            src="images-new/everyday%20comfort%20thumbnail%201.png"
+                            alt="Model wearing the Everyday Comfort Tee"
+                        >
+                    </button>
+
+                    <button
+                        type="button"
+                        data-hires="images-new/everyday%20comfort%20thumbnail%202%20hires.png"
+                    >
+                        <img
+                            src="images-new/everyday%20comfort%20thumbnail%202.png"
+                            alt="Folded Everyday Comfort Tee"
+                        >
+                    </button>
+
+                    <button
+                        type="button"
+                        data-hires="images-new/everyday%20comfort%20thumbnail%203%20hires.png"
+                    >
+                        <img
+                            src="images-new/everyday%20comfort%20thumbnail%203.png"
+                            alt="People wearing the Everyday Comfort Tee"
+                        >
+                    </button>
+
+                </div>
+
+                <!-- DEFAULT MAIN PRODUCT PHOTO -->
+
+                <div class="main-image">
+
+                    <img
+                        id="main-img"
+                        src="images-new/everyday%20comfort%20big%20thumbnail.png"
+                        alt="Everyday Comfort Tee"
+                    >
+
+                </div>
+
+                <!-- PRODUCT DETAILS -->
+
+                <div class="details">
+
+                    <h1 id="product-name">Everyday Comfort Tee</h1>
+
+                    <p class="price" id="product-price">₱499.00</p>
+
+                    <p class="desc">
+                        <span>
+                            A comfortable everyday essential designed for
+                            effortless style and daily wear.
+                        </span>
+                    </p>
+
+                    <span class="label" id="size-label">Size</span>
+
+                    <div class="sizes" role="group" aria-labelledby="size-label">
+
+                        <button type="button" class="size" aria-pressed="false">S</button>
+                        <button type="button" class="size" aria-pressed="false">M</button>
+                        <button type="button" class="size" aria-pressed="false">L</button>
+                        <button type="button" class="size" aria-pressed="false">XL</button>
+
+                    </div>
+
+                    <span class="label">Quantity</span>
+
+                    <div class="qty">
+
+                        <button type="button" id="minus" aria-label="Decrease quantity">−</button>
+
+                        <input
+                            id="qty"
+                            type="number"
+                            value="1"
+                            min="1"
+                            aria-label="Quantity"
+                        >
+
+                        <button type="button" id="plus" aria-label="Increase quantity">+</button>
+
+                    </div>
+
+                    <button type="button" class="order" id="order-btn">
+                        ORDER NOW <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="msg" id="msg" role="alert"></p>
+
+                </div>
+
+            </section>
+
+            <!-- DISCOVER MORE -->
+
+            <section class="discover">
+
+                <h2>DISCOVER MORE</h2>
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <div class="thumb">
+                            <img
+                                src="images-new/do%20good%20work%20big%20thumbnail.png"
+                                alt="Do Good Work Tee"
+                            >
+                        </div>
+
+                        <div class="info">
+
+                            <p class="name">Do Good Work Tee</p>
+
+                            <div class="row">
+                                <span class="p">₱499</span>
+                                <a class="view" href="do-good-work.html">VIEW DETAILS →</a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <article class="card">
+
+                        <div class="thumb">
+                            <img
+                                src="images-new/dont%20be%20late%20big%20thumbnail.png"
+                                alt="Don't Be Late Tee"
+                            >
+                        </div>
+
+                        <div class="info">
+
+                            <p class="name">Don't Be Late Tee</p>
+
+                            <div class="row">
+                                <span class="p">₱499</span>
+                                <a class="view" href="dont-be-late.html">VIEW DETAILS →</a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+
+        <footer class="site-footer">
+
+            <div class="footer-column">
+
+                <span class="footer-heading">EXPLORE</span>
+
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="index.html#about">ABOUT</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+
+            </div>
+
+            <div class="footer-column">
+
+                <span class="footer-heading">INFORMATION</span>
+
+                <div class="footer-links">
+                    <a href="privacy.html">PRIVACY AND TERMS</a>
+                </div>
+
+            </div>
+
+            <div class="footer-column">
+
+                <span class="footer-heading">FOLLOW US</span>
+
+                <div class="social-icons">
+                    <img
+                        src="images-new/media.png"
+                        alt="Instagram, Facebook and TikTok"
+                    >
+                </div>
+
+            </div>
+
+            <div class="footer-brand">
+
+                <div class="footer-brand-logo">
+                    <img src="images-new/serein-icon.png" alt="" class="footer-icon">
+                    <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN" class="footer-wordmark">
+                </div>
+
+                <p>© 2026 SEREIN. ALL RIGHTS RESERVED</p>
+
+            </div>
+
+        </footer>
+
     </div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <!-- JAVASCRIPT -->
 
-  <main>
+    <script>
 
-    <div class="breadcrumb">
-      <a href="index.html">HOME</a> &nbsp;›&nbsp;
-      <a href="shop.html">SHOP</a> &nbsp;›&nbsp;
-      EVERYDAY COMFORT TEE
-    </div>
+        var EMAIL = 'orders@examplewebsite142.com';
 
-    <section class="product-layout">
+        var sizeBtns = document.querySelectorAll('.size');
+        var qtyInput = document.getElementById('qty');
+        var msg = document.getElementById('msg');
+        var selectedSize = '';
 
-      <div class="product-thumbnails">
-        <button class="active" type="button"
-          data-hires="images-new/everyday%20comfort%20thumbnail%201%20hires.png">
-          <img src="images-new/everyday%20comfort%20thumbnail%201.png"
-            alt="Everyday Comfort thumbnail 1">
-        </button>
+        /* SIZE SELECTION */
 
-        <button type="button"
-          data-hires="images-new/everyday%20comfort%20thumbnail%202%20hires.png">
-          <img src="images-new/everyday%20comfort%20thumbnail%202.png"
-            alt="Everyday Comfort thumbnail 2">
-        </button>
+        sizeBtns.forEach(function (button) {
 
-        <button type="button"
-          data-hires="images-new/everyday%20comfort%20thumbnail%203%20hires.png">
-          <img src="images-new/everyday%20comfort%20thumbnail%203.png"
-            alt="Everyday Comfort thumbnail 3">
-        </button>
-      </div>
+            button.addEventListener('click', function () {
 
-      <div class="product-main-image">
-        <img
-          id="mainProductImage"
-          src="images-new/everyday%20comfort%20big%20thumbnail.png"
-          alt="Everyday Comfort Tee">
-      </div>
+                sizeBtns.forEach(function (item) {
+                    item.setAttribute('aria-pressed', 'false');
+                });
 
-      <div class="product-information">
-        <h1>Everyday Comfort Tee</h1>
-        <p class="product-price">₱499.00</p>
+                button.setAttribute('aria-pressed', 'true');
 
-        <p class="product-description">
-          A comfortable everyday essential designed for effortless style
-          and daily wear.
-        </p>
+                selectedSize = button.textContent.trim();
 
-        <span class="product-option-label">SELECT SIZE</span>
+                msg.textContent = '';
 
-        <div class="size-options">
-          <button type="button" data-size="S">S</button>
-          <button type="button" data-size="M">M</button>
-          <button type="button" data-size="L">L</button>
-          <button type="button" data-size="XL">XL</button>
-        </div>
+            });
 
-        <span class="product-option-label">QUANTITY</span>
-
-        <div class="quantity-control">
-          <button type="button" id="decreaseQuantity">−</button>
-          <span id="quantity">1</span>
-          <button type="button" id="increaseQuantity">+</button>
-        </div>
-
-        <a href="#" class="order-button" id="orderButton">ORDER NOW</a>
-      </div>
-
-    </section>
-
-    <section class="discover-more">
-      <h2>DISCOVER MORE</h2>
-
-      <div class="discover-products">
-        <a href="do-good-work.html">
-          <img src="images-new/do%20good%20work%20big%20thumbnail.png"
-            alt="Do Good Work Tee">
-          <p>Do Good Work Tee</p>
-        </a>
-
-        <a href="dont-be-late.html">
-          <img src="images-new/dont%20be%20late%20big%20thumbnail.png"
-            alt="Don't Be Late Tee">
-          <p>Don't Be Late Tee</p>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <div class="footer-brand">
-        <img src="images-new/serein-icon.png" alt="SEREIN Icon">
-        <img src="images-new/serein-wordmark-transparent.png" alt="SEREIN">
-        <p>© 2026 SEREIN. All rights reserved.</p>
-      </div>
-
-      <div class="footer-column">
-        <h3>EXPLORE</h3>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>INFORMATION</h3>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>FOLLOW US</h3>
-        <img src="images-new/media.png" alt="Social media links">
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Product image thumbnails
-    const thumbnailButtons = document.querySelectorAll(
-      ".product-thumbnails button"
-    );
-
-    const mainProductImage = document.getElementById("mainProductImage");
-
-    thumbnailButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        mainProductImage.src = button.dataset.hires;
-
-        thumbnailButtons.forEach(item => {
-          item.classList.remove("active");
         });
 
-        button.classList.add("active");
-      });
-    });
+        /* QUANTITY CONTROLS */
 
-    // Size selection
-    const sizeButtons = document.querySelectorAll(".size-options button");
-    let selectedSize = "";
+        function setQty(number) {
 
-    sizeButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        sizeButtons.forEach(item => item.classList.remove("selected"));
-        button.classList.add("selected");
-        selectedSize = button.dataset.size;
-      });
-    });
+            qtyInput.value = Math.max(
+                1,
+                parseInt(number, 10) || 1
+            );
 
-    // Quantity controls
-    let quantity = 1;
-    const quantityDisplay = document.getElementById("quantity");
+        }
 
-    document.getElementById("increaseQuantity").addEventListener("click", () => {
-      quantity++;
-      quantityDisplay.textContent = quantity;
-    });
+        document.getElementById('minus')
+            .addEventListener('click', function () {
+                setQty(Number(qtyInput.value) - 1);
+            });
 
-    document.getElementById("decreaseQuantity").addEventListener("click", () => {
-      if (quantity > 1) {
-        quantity--;
-        quantityDisplay.textContent = quantity;
-      }
-    });
+        document.getElementById('plus')
+            .addEventListener('click', function () {
+                setQty(Number(qtyInput.value) + 1);
+            });
 
-    // Order button
-    document.getElementById("orderButton").addEventListener("click", event => {
-      event.preventDefault();
+        qtyInput.addEventListener('change', function () {
+            setQty(qtyInput.value);
+        });
 
-      if (!selectedSize) {
-        alert("Please select a size first.");
-        return;
-      }
+        /* THUMBNAIL IMAGE SWITCHING */
 
-      const subject = encodeURIComponent("Everyday Comfort Tee Order");
+        var mainImg = document.getElementById('main-img');
 
-      const body = encodeURIComponent(
-        "Product: Everyday Comfort Tee\n" +
-        "Size: " + selectedSize + "\n" +
-        "Quantity: " + quantity + "\n" +
-        "Price: ₱499.00"
-      );
+        document.querySelectorAll('#thumbs button')
+            .forEach(function (thumbnail) {
 
-      window.location.href =
-        "mailto:orders@examplewebsite142.com?subject=" +
-        subject + "&body=" + body;
-    });
-  </script>
+                thumbnail.addEventListener('click', function () {
+
+                    mainImg.src = thumbnail.dataset.hires;
+                    mainImg.alt = thumbnail.querySelector('img').alt;
+
+                    document.querySelectorAll('#thumbs button')
+                        .forEach(function (item) {
+                            item.removeAttribute('aria-current');
+                        });
+
+                    thumbnail.setAttribute('aria-current', 'true');
+
+                });
+
+            });
+
+        /* ORDER NOW */
+
+        document.getElementById('order-btn')
+            .addEventListener('click', function () {
+
+                if (!selectedSize) {
+
+                    msg.textContent =
+                        'Please choose a size before ordering.';
+
+                    return;
+
+                }
+
+                var name = document.getElementById('product-name')
+                    .textContent.trim();
+
+                var price = document.getElementById('product-price')
+                    .textContent.trim();
+
+                var qty = qtyInput.value;
+
+                var subject = 'Order: ' + name;
+
+                var body =
+                    'Hi Serein,\n\n' +
+                    'I would like to order this t-shirt:\n\n' +
+                    'Product: ' + name + '\n' +
+                    'Price: ' + price + '\n' +
+                    'Size: ' + selectedSize + '\n' +
+                    'Quantity: ' + qty + '\n\n' +
+                    'Name: \n' +
+                    'Contact number: \n' +
+                    'Shipping address: \n\n' +
+                    'Thank you!';
+
+                window.location.href =
+                    'mailto:' + EMAIL +
+                    '?subject=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
+
+            });
+
+    </script>
 
 </body>
 </html>
