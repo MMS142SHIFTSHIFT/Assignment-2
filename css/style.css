@@ -39,18 +39,12 @@ a {
 .brand {
     display: flex;
     align-items: center;
-    gap: 16px;
     height: 100%;
 }
 
-.brand-icon {
-    width: 43px;
-    height: 43px;
-    object-fit: contain;
-}
-
 .brand-wordmark {
-    width: 145px;
+    display: block;
+    width: 150px;
     height: auto;
     object-fit: contain;
 }
