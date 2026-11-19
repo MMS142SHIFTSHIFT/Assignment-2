@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -78,7 +79,7 @@ a {
     background: #F2F0EC;
 }
 
-/* LARGE CENTERED BACKGROUND WATERMARK */
+/* CENTERED BACKGROUND WATERMARK */
 
 .privacy-page::before {
     content: "";
@@ -86,8 +87,8 @@ a {
     inset: 0;
     background-image: url("../images-new/serein%20watermark.png");
     background-repeat: no-repeat;
-    background-position: center 250px;
-    background-size: 750px auto;
+    background-position: center -55px;
+    background-size: 600px auto;
     pointer-events: none;
     z-index: 0;
 }
@@ -260,8 +261,8 @@ a {
     }
 
     .privacy-page::before {
-        background-size: 95% auto;
-        background-position: center 180px;
+        background-size: 90% auto;
+        background-position: center -30px;
     }
 
     .privacy-content h1 {
