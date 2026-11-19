@@ -67,6 +67,107 @@ a {
     font-weight: 600;
 }
 
+/* CONTACT PAGE MAIN SECTION */
+
+.contact-main {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: contain;
+}
+
+.contact-wrapper {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.left-column p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 380px;
+}
+
+.contact-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    color: #111111;
+}
+
+.office-info h2 {
+    letter-spacing: 0.03em;
+    color: #111111;
+}
+
+.office-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #222222;
+}
+
+.office-email {
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.office-email:hover {
+    color: #555555;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: #111111;
+}
+
+.form-group label span {
+    color: #d93025;
+    margin-left: 2px;
+}
+
+.serein-input {
+    background-color: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.serein-input:focus {
+    background-color: #ffffff;
+    border-color: #111111;
+    box-shadow: 0 0 0 0.15rem rgba(17, 17, 17, 0.15);
+}
+
+.btn-serein-submit {
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0; /* Sharp corners matching wireframe */
+    padding: 0.65rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-serein-submit:hover {
+    background-color: #333333;
+    border-color: #333333;
+    color: #ffffff;
+}
+
 /* PRIVACY POLICY CONTENT */
 
 .privacy-page {
