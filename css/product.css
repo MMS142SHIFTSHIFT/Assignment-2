@@ -1,0 +1,383 @@
+.product-detail-page {
+    --chip: #f2f0ec;
+    --chip-dark: rgba(138, 137, 133, .75);
+    --chip-border: rgba(17, 17, 17, .2);
+}
+
+.product-detail-page main {
+    position: relative;
+    isolation: isolate;
+    padding: 64px 77px 60px;
+    overflow: hidden;
+}
+
+.product-detail-page main::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 786px;
+    height: 920px;
+    background: url("../images/serein-watermark.png") center top / 100% auto no-repeat;
+    opacity: .5;
+}
+
+.crumbs {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 38px;
+}
+
+.crumbs span {
+    margin: 0 8px;
+}
+
+.crumbs b {
+    font-weight: 700;
+}
+
+/* ---------- PRODUCT LAYOUT ---------- */
+
+.product {
+    display: grid;
+    grid-template-columns: 100px 500px minmax(0, 442px);
+    column-gap: 31px;
+    margin-left: 77px;
+    align-items: start;
+}
+
+.thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.thumbs button {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border: 1px solid var(--ink);
+    background: #d9c9bb;
+    cursor: pointer;
+}
+
+.thumbs button[aria-current="true"] {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.thumbs img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ---------- DETAILS ---------- */
+
+.details {
+    margin-left: 48px;
+}
+
+.details h1 {
+    font-family: var(--font-heading);
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.details .price {
+    font-family: var(--font-heading);
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 4px 0 14px;
+}
+
+.desc {
+    font-size: 20px;
+    line-height: 1.3;
+    padding: 0 0 26px 6px;
+    border-bottom: 1px solid var(--ink);
+}
+
+.desc span {
+    display: block;
+    max-width: 320px;
+}
+
+.label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 26px 0 12px;
+}
+
+.sizes {
+    display: flex;
+    gap: 17px;
+    flex-wrap: wrap;
+}
+
+.size {
+    width: 56px;
+    height: 48px;
+    background: var(--chip);
+    border: 1px solid var(--chip-border);
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.size:hover {
+    border-color: var(--ink);
+}
+
+.size[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+.qty {
+    display: flex;
+    gap: 17px;
+}
+
+.qty button {
+    width: 56px;
+    height: 48px;
+    background: var(--chip-dark);
+    border: 1px solid var(--chip-border);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.qty button:hover {
+    background: var(--gray);
+}
+
+.qty input {
+    width: 121px;
+    height: 48px;
+    text-align: center;
+    background: var(--chip);
+    border: 1px solid var(--chip-border);
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    -moz-appearance: textfield;
+}
+
+.qty input::-webkit-outer-spin-button,
+.qty input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.dark-button.order {
+    width: 253px;
+    height: 42px;
+    margin-top: 40px;
+    background: var(--btn);
+    font-size: 20px;
+}
+
+.dark-button.order svg {
+    width: 24px;
+}
+
+.msg {
+    font-size: 14px;
+    color: #b3261e;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+/* ---------- DISCOVER MORE ---------- */
+
+.discover {
+    margin-top: 32px;
+}
+
+.discover h2 {
+    font-family: var(--font-heading);
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 34px;
+}
+
+.cards {
+    display: flex;
+    gap: 140px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.related-card {
+    display: flex;
+    width: 420px;
+    min-height: 120px;
+    padding: 2px;
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid var(--line);
+}
+
+.related-card .thumb {
+    width: 140px;
+    flex: none;
+    background: #d9c9bb;
+}
+
+.related-card .thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-card .info {
+    flex: 1;
+    min-width: 0;
+    padding: 18px 12px 0 18px;
+}
+
+.related-card .name {
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.related-card .related-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-top: 14px;
+}
+
+.related-card .p {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray);
+}
+
+.related-card .view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 12px;
+    background: var(--btn);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.related-card .view svg {
+    width: 14px;
+    height: 6px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1200px) {
+    .product-detail-page main {
+        padding: 40px 32px 50px;
+    }
+
+    .product {
+        margin-left: 0;
+        grid-template-columns: 100px minmax(0, 1fr);
+        row-gap: 32px;
+    }
+
+    .details {
+        grid-column: 1 / -1;
+        margin-left: 0;
+    }
+
+    .cards {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 760px) {
+    .product-detail-page main {
+        padding: 28px 20px 45px;
+    }
+
+    .product-detail-page main::before {
+        width: 100%;
+        height: 100%;
+    }
+
+    .crumbs {
+        font-size: 14px;
+    }
+
+    .product {
+        grid-template-columns: 1fr;
+    }
+
+    .main-image {
+        order: 1;
+    }
+
+    .thumbs {
+        flex-direction: row;
+        order: 2;
+    }
+
+    .thumbs button {
+        width: 72px;
+        height: 72px;
+    }
+
+    .details {
+        order: 3;
+    }
+
+    .details h1 {
+        font-size: 28px;
+    }
+
+    .details .price {
+        font-size: 38px;
+    }
+
+    .discover h2 {
+        font-size: 28px;
+    }
+
+    .related-card {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 480px) {
+    .related-card .thumb {
+        width: 100px;
+    }
+
+    .related-card .info {
+        padding: 14px 10px 14px 12px;
+    }
+}
