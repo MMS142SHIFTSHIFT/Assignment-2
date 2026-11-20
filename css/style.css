@@ -391,61 +391,6 @@ main:focus {
     padding-top: 10px;
 }
 
-/* ---------- PRIVACY POLICY ---------- */
-
-.privacy-page {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding: 30px 41px 40px;
-}
-
-.privacy-page::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    pointer-events: none;
-    top: -105px;
-    left: 135px;
-    width: 1182px;
-    height: 1383px;
-    background: url("../images/serein-watermark.png") center top / 100% auto no-repeat;
-    opacity: .35;
-}
-
-.privacy-content {
-    max-width: 860px;
-}
-
-.privacy-content h1,
-.privacy-section h2 {
-    font-family: var(--font-heading);
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.privacy-date {
-    font-size: 18px;
-    margin: 12px 0 18px;
-}
-
-.intro-section p,
-.privacy-section p,
-.definitions-section li {
-    font-size: 18px;
-    line-height: 1.35;
-    margin-bottom: 18px;
-}
-
-.privacy-section {
-    margin-top: 28px;
-}
-
-.privacy-section h2 {
-    margin-bottom: 14px;
-}
-
 .definitions-section ul {
     padding-left: 28px;
     margin-top: 14px;
