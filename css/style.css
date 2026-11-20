@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root {
+    --ink: #111111;
+    --ivory: #f2f0ec;
+    --gray: #8a8985;
+    --white: #ffffff;
+    --btn: #252525;
+    --error: #b3261e; /* 4.5:1+ on ivory and white */
+    --line: rgba(0, 0, 0, .25);
+    --max-width: 1440px;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
 
 * {
     margin: 0;
@@ -7,11 +19,35 @@
     box-sizing: border-box;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Keep Bootstrap's Reboot from changing the Figma spacing:
+   this file loads after Bootstrap, so these win. */
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin: 0;
+}
+
 body {
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-    color: #111;
-    background: #F2EFE9;
+    line-height: normal;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--ivory);
+}
+
+/* white-background pages (home, shop, product) */
+body.page-white {
+    background: var(--white);
+}
+
+img {
+    max-width: 100%;
 }
 
 a {
@@ -19,52 +55,340 @@ a {
     text-decoration: none;
 }
 
+/* Sticky footer: every page fills the viewport */
 .site-container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: clip;
 }
 
-/* HEADER */
+.site-container > main {
+    flex: 1 0 auto;
+}
+
+/* ---------- ACCESSIBILITY: skip link + visible focus ---------- */
+
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1000;
+    padding: 10px 16px;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 600;
+    border: 2px solid var(--ink);
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+}
+
+/* on the dark header and footer the ring must be light */
+.site-header :focus-visible,
+.site-footer :focus-visible,
+.dark-button:focus-visible,
+.btn-serein-submit:focus-visible {
+    outline-color: #f2f0ec;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px #111111;
+}
+
+main:focus {
+    outline: none;
+}
+
+/* ---------- HEADER (75px bar) ---------- */
 
 .site-header {
-    width: 100%;
-    height: 80px;
-    padding: 0 45px;
-    background: #111;
+    height: 75px;
+    padding: 0 68px 0 60px;
+    background: var(--ink);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 70px;
 }
 
 .brand-icon {
-    width: 43px;
-    height: 43px;
+    width: 60px;
+    height: 70px;
     object-fit: contain;
 }
 
 .brand-wordmark {
-    width: 145px;
-    height: auto;
+    width: 172px;
+    height: 70px;
     object-fit: contain;
 }
 
 .site-header nav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 36px;
 }
 
 .site-header nav a {
-    color: #FFF;
-    font-size: 14px;
+    color: var)--white);
+    font-size: 18px;
     font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+}
+
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
+    border-bottom-color: var(--white);
+}
+
+/* ---------- BUTTONS (dark, with long arrow) ---------- */
+
+.dark-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    height: 39px;
+    padding: 0 20px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 0;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.dark-button:hover {
+    background: #3a3a3a;
+}
+
+.dark-button svg {
+    width: 20px;
+    height: 10px;
+    flex: none;
+}
+
+/* ---------- WATERMARK (brand mark behind content) ---------- */
+
+.watermark {
+    position: relative;
+    isolation: isolate;
+}
+
+.watermark::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    background: url("../images/serein-watermark.png") center top / 100% auto no-repeat;
+}
+
+/* ---------- HOME: HERO ---------- */
+
+.hero {
+    display: grid;
+    grid-template-columns: 509px minmax(0, 1fr);
+    background: var(--ivory);
+    min-height: 250px;
+}
+
+.hero-text {
+    padding: 0 40px 0 59px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 34px;
+    align-items: flex-start;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 70px;
+    text-transform: uppercase;
+}
+
+.hero .dark-button {
+    min-width: 256px;
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover;
+    object-position: left center;
+}
+
+/* ---------- HOME / SHOP: PRODUCT CARDS ---------- */
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 35px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.shop-section {
+    position: relative;
+    isolation: isolate;
+    padding: 30px 56px 60px 35px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.shop-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    top: 0;
+    left: 384px;
+    width: 614px;
+    height: 719px;
+    background: url("../images-new/background-logo.png") center top / 100% auto no-repeat;
+    opacity: .35;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 0 0 25px;
+    margin-top: 30px;
+}
+
+.product-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .6);
+    min-height: 270px;
+}
+
+.product-card-image {
+    display: block;
+    background: #d9c9bb;
+    overflow: hidden;
+}
+
+.product-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card-body {
+    padding: 38px 18px 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.product-card-name {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.product-card-price {
+    font-size: 25px;
+    font-weight: 700;
+    margin: auto 0 18px;
+}
+
+.product-card .dark-button {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* ---------- HOME: ABOUT STRIP ---------- */
+
+.about-section {
+    display: grid;
+    grid-template-columns: 754fr 686fr;
+    min-height: 185px;
+    margin-top: 10px;
+}
+
+.about-section img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 185px;
+    object-fit: cover;
+}
+
+.about-text {
+    background: var(--ivory);
+    padding: 6px 56px 6px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.about-text h2 {
+    font-family: var(--font-heading);
+    font-size: 35px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.about-text p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+/* ---------- SHOP PAGE ---------- */
+
+.shop-page-header {
+    padding: 50px 60px 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.shop-page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.shop-page-header p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.shop-page-header + .shop-section {
+    padding-top: 10px;
 }
 
 /* CONTACT PAGE MAIN SECTION */
