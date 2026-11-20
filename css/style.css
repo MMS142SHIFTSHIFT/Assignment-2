@@ -688,3 +688,249 @@ main:focus {
         font-size: 16px;
     }
 }
+
+/* CONTACT PAGE MAIN SECTION */
+
+.contact-main {
+    position: relative;
+    overflow: hidden;
+    background-image: url('../images-new/background-logo.png');
+    background-repeat: no-repeat;
+    background-position: -120px center;
+    background-size: 650px auto;
+}
+
+.contact-wrapper {
+    padding-left: 45px;
+    padding-right: 45px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .contact-main {
+        background-size: 380px auto;
+        background-position: -80px 40px;
+    }
+    .contact-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.left-column p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 380px;
+}
+
+.contact-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    color: #111111;
+}
+
+.office-info h2 {
+    letter-spacing: 0.03em;
+    color: #111111;
+}
+
+.office-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #222222;
+}
+
+.office-email {
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.office-email:hover {
+    color: #555555;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: #111111;
+}
+
+.form-group label span {
+    color: #d93025;
+    margin-left: 2px;
+}
+
+.serein-input {
+    background-color: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.serein-input:focus {
+    background-color: #ffffff;
+    border-color: #111111;
+    box-shadow: 0 0 0 0.15rem rgba(17, 17, 17, 0.15);
+}
+
+.btn-serein-submit {
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0; /* Sharp corners matching wireframe */
+    padding: 0.65rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-serein-submit:hover {
+    background-color: #333333;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+/* PRIVACY POLICY CONTENT */
+
+.privacy-page {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    min-height: 790px;
+    padding: 28px 4.5% 30px;
+    background: #F2F0EC;
+}
+
+.privacy-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80vw, 900px);
+    height: 100%;
+    background-image: url("../images-new/serein%20watermark.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.privacy-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.privacy-content h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.privacy-date {
+    font-size: 12px;
+    margin-bottom: 17px;
+}
+
+.intro-section p {
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 13px;
+}
+
+.privacy-section {
+    margin-top: 33px;
+}
+
+.privacy-section h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.privacy-section p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.definitions-section {
+    margin-top: 27px;
+}
+
+.definitions-section ul {
+    padding-left: 19px;
+    margin-top: 12px;
+}
+
+.definitions-section li {
+    font-size: 13px;
+    line-height: 1.4;
+    padding-left: 0;
+    margin-bottom: 12px;
+}
+
+/* PRODUCT DETAIL PAGES */
+
+.product-detail-page {
+    background: #FFFFFF;
+}
+
+.product-detail-page main {
+    position: relative;
+    isolation: isolate;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+/* PRODUCT PAGE WATERMARK */
+
+.product-detail-page main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80vw, 750px);
+    height: 100%;
+    background-image: url("../images-new/serein%20watermark.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: 100% auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.product-detail-page main > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* PRODUCT IMAGE - PRESERVE ORIGINAL PROPORTIONS */
+
+.product-detail-page .main-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.product-detail-page .main-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
